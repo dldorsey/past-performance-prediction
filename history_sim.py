@@ -23,10 +23,10 @@ def find_closest_trading_date(date):
 		return date
 	elif date + datetime.timedelta(days=1) in historical_dates:
 		return date + datetime.timedelta(days=1)
-	elif date + datetime.timedelta(days=-1) in historical_dates:
-		return date + datetime.timedelta(days=-1)
 	elif date + datetime.timedelta(days=2) in historical_dates:
 		return date + datetime.timedelta(days=2)
+	elif date + datetime.timedelta(days=-1) in historical_dates:
+		return date + datetime.timedelta(days=-1)
 	elif date + datetime.timedelta(days=-2) in historical_dates:
 		return date + datetime.timedelta(days=-2)
 	else:
