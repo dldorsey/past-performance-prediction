@@ -17,6 +17,7 @@ The script uses CSV historical data provided by Yahoo. See an example at:
 	2. Adding 2 days
 	3. Subtracting 1 day
 	4. Subtracting 2 days
+	5. Accounting for the September 11th, 2001 shutdown
 
 2. Investments are made with a constant investment amount
 
