@@ -1,13 +1,13 @@
-import csv, datetime
+import csv, datetime, urllib
 
 #User defined variables
-ticker = 'VFICX'
+ticker = 'T'
 print ticker
-data_file = 'C:\\apps\invest\past-performance-prediction\Vanguard_'+ticker+'.csv'
+data_file = 'http://ichart.finance.yahoo.com/table.csv?s='+ticker+'&d=5&e=6&f=2014&g=d&a=0&b=2&c=1980&ignore=.csv'
 investment_period = 30.44
 investment_count = 60
-investment_amount = 4950
-investment_target = 320863
+investment_amount = 3213
+investment_target = 192782
 
 #derived variables
 adjusted_investment_count = investment_count - 1 #not buying more on the final sale day
@@ -56,11 +56,11 @@ def run_simulation(date):
 	return [date, final_sell_date, final_sell_price/100.0, final_shares_value/100.0, final_price/100.0, final_price/100.0 - investment_target]
 	
 historical_data = {}
-with open(data_file, 'rb') as f:
-	reader = csv.DictReader(f)
-	for row in reader:
-		trading_date = convert_date_string_to_date(row['Date'])
-		historical_data[trading_date] = row['Open']
+f = urllib.urlopen(data_file)
+reader = csv.DictReader(f)
+for row in reader:
+	trading_date = convert_date_string_to_date(row['Date'])
+	historical_data[trading_date] = row['Open']
 
 historical_dates = list(historical_data.keys())
 
@@ -76,6 +76,6 @@ for day in historical_dates:
 
 print len(simulation)
 	
-with open('sim_'+ticker+'.csv', 'wb') as csvfile:
+with open('sim_'+ticker+'_URL.csv', 'wb') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerows(simulation)

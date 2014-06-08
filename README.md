@@ -23,7 +23,7 @@ The script uses CSV historical data provided by Yahoo. See an example at:
 
 3. Simulations are run for each date, starting with the earliest date available in the data until the farthest date available to include the full duration of a simulation
 
-4. All shares are sold at the final date 
+4. All shares are sold at the final date
 
 5. The sale date will include a single periodic investment that returns 0%
 > For example, 3 investments made at a weekly interval would:
@@ -34,8 +34,9 @@ The script uses CSV historical data provided by Yahoo. See an example at:
 ###TODO
 
 * Support for dividends
-* Retrieve the data directly from Yahoo's web service
+* <s>Retrieve the data directly from Yahoo's web service</s>
 * Support for trading cost accounting
-* Support for mutal fund fee accounting: 12b-1, expense ratio, load
+* Support for mutual fund fee accounting: 12b-1, expense ratio, load
 * Support for multiple securities
 * Support for periodic rebalancing
+* Flexible analysis data export (currently only CSV)
